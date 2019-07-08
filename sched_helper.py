@@ -10,8 +10,9 @@ import mlrose
 import numpy as np
 
 def sched_source_write(file, source, DEC_median, time_source, up = False):  
-
-    ### looking foe dwell ###
+    # This function writes a line to output file. 
+    
+    ### looking for dwell ###
     
     # Number of scans upper or below median value of DEC for all sources
     N_scans_up = 8
@@ -30,11 +31,9 @@ def sched_source_write(file, source, DEC_median, time_source, up = False):
         file.write( "source = '"+source+"' dwell = "+str(dwell)+"/"+'\n')
     
     ### end of looking dwell ###   
-   
-    
-    
 
 def salesman(Y):
+    # This function calculate optimized order of sources to observe.
     N_sources = len(Y)
 
     #From name of source one can obtain RA and DEC 
@@ -56,9 +55,11 @@ def salesman(Y):
     
     best_state, best_fitness = mlrose.genetic_alg(problem_fit, mutation_prob = 0.2, 
     					      max_attempts = 100, random_state = 2)
-    print(best_state)
+
     return best_state
 
+
+# There one can put the name of a file containing list of sources
 #name = 'YY.list'
 name = 'Y.list'
 
@@ -74,6 +75,7 @@ for i in range(N_sources):
 
 DEC_median = np.median(DEC)
 
+#Time of total observing without the time of aiming to sources.
 #time_tot = (24-7.62)*60*60
 time_tot = (24-9.12)*60*60
 time_source = time_tot/N_sources
@@ -84,7 +86,7 @@ n_groups = 8
 group_n = (N_sources-1)//n_groups
 group_n_left = N_sources%n_groups
 
-file = open('ml_'+name+'.sched_slist', 'w')
+file = open(name+'.sched_slist', 'w')
 
 for n_g in range(n_groups+1): 
     if n_g == 0:
