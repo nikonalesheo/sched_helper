@@ -1,5 +1,5 @@
 # SCHED helper
-This script is written to form a pull of radio sources to observe in particular order and dwell (see NRAO SCHED manual) by VLBA. 
+This script is written to form an optimized pull of radio sources to observe in particular order and dwell (see NRAO SCHED manual) by VLBA. 
 
 Worked on numpy 1.15.4, mlrose 1.2.0 libraries, python 3.7.3
 
