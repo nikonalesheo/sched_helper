@@ -1,6 +1,8 @@
 # SCHED helper
 This script is written to form an optimized pull of radio sources to observe in particular order and dwell (see NRAO SCHED manual) by VLBA. 
 
+This is first attempt and I do not recommend anybody use it.
+
 Worked on numpy 1.15.4, mlrose 1.2.0 libraries, python 3.7.3
 
 To save time obsering sources it was decided to use the soulution of Salesman problem to solve this problem.
